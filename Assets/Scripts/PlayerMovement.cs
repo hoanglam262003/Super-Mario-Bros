@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
     public bool isGrounded { get; private set; }
     public bool isJumping { get; private set; }
+    public bool isSliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f) || (inputAxis == 0f && Mathf.Abs(velocity.x) > 0.1f);
+    public bool isRunning => Mathf.Abs(velocity.x) > 0.25f || Mathf.Abs(inputAxis) > 0.25f;
 
     private void Awake()
     {
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HorizontalMovement()
     {
-        float inputAxis = 0f;
+        inputAxis = 0f;
 
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
             inputAxis = -1f;
@@ -47,6 +49,27 @@ public class PlayerMovement : MonoBehaviour
             inputAxis = 1f;
 
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
+
+        if (rb.Raycast(Vector2.right * velocity.x))
+        {
+            velocity.x = 0f;
+        }
+
+        Vector2 leftEdge = mainCamera.ScreenToWorldPoint(Vector2.zero);
+        float minX = leftEdge.x + 0.5f;
+
+        if (rb.position.x <= minX && velocity.x < 0f)
+        {
+            velocity.x = 0f;
+        }
+
+        if (velocity.x > 0f)
+        {
+            transform.eulerAngles = Vector3.zero;
+        } else if (velocity.x < 0f)
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
     }
 
     private void GroundedMovement()
@@ -80,5 +103,16 @@ public class PlayerMovement : MonoBehaviour
         position.x = Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
 
         rb.MovePosition(position);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+        {
+            if (transform.DotTest(collision.transform, Vector2.up))
+            {
+                velocity.y = 0f;
+            }                           
+        }
     }
 }
