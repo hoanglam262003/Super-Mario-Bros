@@ -11,13 +11,13 @@ public class DeathAnimation : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
-    {
-        if (enabled && deathSprite != null)
-        {
-            UpdateSprite();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (enabled && deathSprite != null)
+    //    {
+    //        UpdateSprite();
+    //    }
+    //}
 
     private void OnEnable()
     {
