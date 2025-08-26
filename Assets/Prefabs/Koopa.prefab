@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 1780032625406256404}
   - component: {fileID: 2530710047345978834}
   - component: {fileID: 4482368915935779472}
+  - component: {fileID: 6175173484959448441}
   - component: {fileID: 2182888238799187055}
   - component: {fileID: 3510821178206516127}
+  - component: {fileID: 3573977844909557022}
+  - component: {fileID: 297778512490986628}
   m_Layer: 7
   m_Name: Koopa
   m_TagString: Untagged
@@ -154,6 +157,52 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!61 &6175173484959448441
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730140279015133271}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.33333334}
+    oldSize: {x: 1, y: 1.5}
+    newSize: {x: 1, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.25, y: 1.25}
+  m_EdgeRadius: 0
 --- !u!114 &2182888238799187055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +233,31 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b6997b812bbe4840ae3afbb20f2312b, type: 3}
   - {fileID: 21300000, guid: abbbfac621fc9c549b0e50177934ecfc, type: 3}
   frameRate: 0.25
+--- !u!114 &3573977844909557022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730140279015133271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265dcdd7ac63e884994f0c257aab8c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellSprite: {fileID: 21300000, guid: f882caca8db1d9547be2c030f5a6b82e, type: 3}
+  shellSpeed: 10
+--- !u!114 &297778512490986628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6730140279015133271}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee44fbdb02f64e4cb6a198d7164d133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSprite: {fileID: 0}
+  spriteRenderer: {fileID: 1780032625406256404}
