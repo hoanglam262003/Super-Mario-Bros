@@ -8,6 +8,36 @@ public class Koopa : MonoBehaviour
     private bool isInShell;
     private bool pushed;
 
+    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
+    private EntityMovement entityMovement;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        entityMovement = GetComponent<EntityMovement>();
+    }
+
+    private void Update()
+    {
+        if (!isInShell)
+        {
+            if (entityMovement != null && entityMovement.enabled)
+            {
+                if (entityMovement.direction.x > 0.01f) spriteRenderer.flipX = true;
+                else if (entityMovement.direction.x < -0.01f) spriteRenderer.flipX = false;
+            }
+            else
+            {
+                if (rb != null && Mathf.Abs(rb.linearVelocity.x) > 0.01f)
+                {
+                    spriteRenderer.flipX = rb.linearVelocity.x < 0;
+                }
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isInShell && collision.gameObject.CompareTag("Player"))
