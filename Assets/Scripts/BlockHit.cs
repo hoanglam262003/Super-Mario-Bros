@@ -42,7 +42,7 @@ public class BlockHit : MonoBehaviour
     {
         isAnimating = true;
 
-        Vector3 restingPosition = transform.localPosition;
+        Vector3 restingPosition = transform.position;
         Vector3 animatedPosition = restingPosition + Vector3.up * 0.5f;
 
         yield return Move(restingPosition, animatedPosition);
@@ -59,11 +59,11 @@ public class BlockHit : MonoBehaviour
         while (elapsed < duration)
         {
             float t = elapsed / duration;
-            transform.localPosition = Vector3.Lerp(from, to, t);
+            transform.position = Vector3.Lerp(from, to, t);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localPosition = to;
+        transform.position = to;
     }
 }
