@@ -32,11 +32,11 @@ public class PowerUp : MonoBehaviour
                 Debug.Log("Extra life gained!");
                 break;
             case PowerUpType.MagicMushroom:
-                // Make player grow in size
+                player.GetComponent<Player>().Grow();
                 Debug.Log("Magic Mushroom collected! Player grows!");
                 break;
             case PowerUpType.StarPower:
-                // Make player invincible for a short time
+                player.GetComponent<Player>().StarPower();
                 Debug.Log("Star Power collected! Player is invincible!");
                 break;
         }
