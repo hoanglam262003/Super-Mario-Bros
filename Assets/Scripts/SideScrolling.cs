@@ -4,6 +4,9 @@ public class SideScrolling : MonoBehaviour
 {
     private Transform player;
 
+    public float height = 6.5f;
+    public float undergroundHeight = -7.5f;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -15,6 +18,13 @@ public class SideScrolling : MonoBehaviour
         // for camera following the player
         //cameraPosition.x = player.position.x;
         cameraPosition.x = Mathf.Max(cameraPosition.x, player.position.x);
+        transform.position = cameraPosition;
+    }
+
+    public void SetUnderground (bool underground)
+    {
+        Vector3 cameraPosition = transform.position;
+        cameraPosition.y = underground ? undergroundHeight : height;
         transform.position = cameraPosition;
     }
 }
