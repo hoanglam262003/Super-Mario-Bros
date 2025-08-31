@@ -128,6 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5134368738276322652}
   - component: {fileID: 1178788582273708299}
+  - component: {fileID: 4567050898642453761}
   m_Layer: 2
   m_Name: FlagPole
   m_TagString: Untagged
@@ -200,6 +201,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.25, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &4567050898642453761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869966956974540615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f2432eb9cc98349a0b79e7c80934c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: {fileID: 7749049932867157512}
+  poleBottom: {fileID: 1202698085992303125}
+  castle: {fileID: 0}
+  speed: 6
 --- !u!1 &8475529391836655190
 GameObject:
   m_ObjectHideFlags: 0
