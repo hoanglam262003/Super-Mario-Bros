@@ -4572,12 +4572,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4282580745364318802, guid: b335d131f2932fb4a86e8c29022ee50d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282580745364318802, guid: b335d131f2932fb4a86e8c29022ee50d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.0259
+      value: 6.5705
       objectReference: {fileID: 0}
     - target: {fileID: 4360269662622787992, guid: b335d131f2932fb4a86e8c29022ee50d, type: 3}
       propertyPath: m_Size.y
-      value: 10.051739
+      value: 11.007235
       objectReference: {fileID: 0}
     - target: {fileID: 4641862554227284867, guid: b335d131f2932fb4a86e8c29022ee50d, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
@@ -12672,6 +12676,18 @@ PrefabInstance:
     - target: {fileID: 440054338070790097, guid: ec86a82e2e89be04e8347070a057da63, type: 3}
       propertyPath: m_Name
       value: Pipes (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 819135989895329464, guid: ec86a82e2e89be04e8347070a057da63, type: 3}
+      propertyPath: m_Size.y
+      value: 11.006286
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318477509362025165, guid: ec86a82e2e89be04e8347070a057da63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318477509362025165, guid: ec86a82e2e89be04e8347070a057da63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.8853
       objectReference: {fileID: 0}
     - target: {fileID: 6464994454266547647, guid: ec86a82e2e89be04e8347070a057da63, type: 3}
       propertyPath: m_LocalPosition.x

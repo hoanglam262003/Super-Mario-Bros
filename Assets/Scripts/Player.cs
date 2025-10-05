@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     private DeathAnimation deathAnimation;
     private CapsuleCollider2D capsuleCollider;
+    private bool isInvincible;
 
     public bool isBig => bigRenderer.enabled;
     public bool isSmall => smallRenderer.enabled;
@@ -21,22 +22,21 @@ public class Player : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         activeRenderer = smallRenderer;
     }
-
     public void Hit()
     {
-        if (!isDead && !starPower)
+        if (!isDead && !starPower && !isInvincible)
         {
             if (isBig)
             {
-                Shrink();
+                Shrink();               
             }
             else
             {
                 Die();
             }
         }
-        
     }
+
 
     private void Die()
     {
@@ -73,24 +73,31 @@ public class Player : MonoBehaviour
 
     private IEnumerator ScaleAnimation()
     {
+        isInvincible = true;
         float elapsed = 0f;
-        float duration = 0.5f;
+        float duration = 1.5f;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            if (Time.frameCount % 4 == 0)
+            if (Time.frameCount % 6 == 0)
             {
                 smallRenderer.enabled = !smallRenderer.enabled;
                 bigRenderer.enabled = !smallRenderer.enabled;
             }
-            
+
             yield return null;
         }
-
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         activeRenderer.enabled = true;
+        isInvincible = false;
+
+        Collider2D hit = Physics2D.OverlapBox(transform.position, capsuleCollider.size, 0f, LayerMask.GetMask("Enemy"));
+        if (hit != null)
+        {
+            Die();
+        }
     }
 
     public void StarPower(float duration = 10f)
